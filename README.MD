@@ -14,6 +14,9 @@ The application functionality is based on REST principles and realizes REST API 
   - Spring-Boot
   - Lombok
 
+### **Base URI**
+  http://localhost:8080
+
 ### **Available resources**
 |Resource|Description|
 |---|---|
