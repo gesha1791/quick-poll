@@ -12,6 +12,7 @@ The application functionality is based on REST principles and realizes REST API 
 
 ### **Main used technologies are:**
   - Spring-Boot
+  - Lombok
 
 ### **Available resources**
 |Resource|Description|
@@ -52,3 +53,6 @@ The application functionality is based on REST principles and realizes REST API 
 |HTTP Method|Resource Endpoint|Input|Success Response|Error Response|Description|
 |---|---|---|---|---|---|
 |GET|/computeresult|Body:Empty Param:pollId|Status:200 Body:Vote count|Status 500|Returns the vote count for the given poll|
+
+### **Request and response data format**
+- application/JSON
