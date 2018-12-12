@@ -5,10 +5,12 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-
-@Getter @Setter
+@Entity
+@Getter
+@Setter
 @ToString
 public class Vote {
+
     @Id
     @GeneratedValue
     @Column(name = "VOTE_ID")

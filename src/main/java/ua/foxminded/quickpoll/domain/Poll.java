@@ -4,23 +4,26 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.*;
 import java.util.Set;
 
-@Getter @Setter
-@ToString
+import javax.persistence.*;
+
 @Entity
+@Getter
+@Setter
+@ToString
 public class Poll {
+
     @Id
     @GeneratedValue
     @Column(name = "POLL_ID")
     private Long id;
 
-    @Column(name = "POLL_QUESTION")
+    @Column(name = "QUESTION")
     private String question;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "POLL_ID")
-    @OrderBy // сортировка
+    @OrderBy
     private Set<Option> options;
 }
