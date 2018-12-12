@@ -59,5 +59,4 @@ public class PollController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-
 }
