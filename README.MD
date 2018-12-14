@@ -1,4 +1,4 @@
-# <a href="https://github.com/JavaWebinar/topjava">Quick Poll</a>
+# <a href="http://git.foxminded.com.ua/gesha17/quick-poll">Quick Poll</a>
 #### System for creating polls
 
 The application functionality is based on REST principles and realizes REST API without frontend.

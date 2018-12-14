@@ -20,7 +20,7 @@ public class ComputeResultController {
     VoteRepository voteRepository;
 
     @RequestMapping(value = "/computeresult", method = RequestMethod.GET)
-    public ResponseEntity<?> computeResult (@RequestParam Long pollId){
+    public ResponseEntity<?> computeResult(@RequestParam Long pollId) {
         Iterable<Vote> allVotesByPoll = voteRepository.findByPoll(pollId);
         VoteResult voteResult = countVotes(allVotesByPoll);
 
@@ -31,16 +31,16 @@ public class ComputeResultController {
         VoteResult voteResult = new VoteResult();
         int totalVotes = 0;
         HashMap<Long, OptionCount> longOptionCountHashMap = new HashMap<>();
-        for (Vote vote : allVotesByPoll){
+        for (Vote vote : allVotesByPoll) {
             totalVotes++;
 
             OptionCount optionCount = longOptionCountHashMap.get(vote.getOption().getId());
-            if(optionCount == null){
+            if (optionCount == null) {
                 optionCount = new OptionCount();
                 optionCount.setOptionId(vote.getOption().getId());
                 longOptionCountHashMap.put(vote.getOption().getId(), optionCount);
             }
-            optionCount.setCount(optionCount.getCount()+ 1);
+            optionCount.setCount(optionCount.getCount() + 1);
         }
         voteResult.setTotalVotes(totalVotes);
         voteResult.setResults(longOptionCountHashMap.values());

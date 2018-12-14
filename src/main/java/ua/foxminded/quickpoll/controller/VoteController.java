@@ -18,7 +18,7 @@ public class VoteController {
     VoteRepository voteRepository;
 
     @RequestMapping(value = "/polls/{id}/votes/", method = RequestMethod.POST)
-    public ResponseEntity<?> createVote (@PathVariable Long id, @RequestBody Vote vote){
+    public ResponseEntity<?> createVote(@PathVariable Long id, @RequestBody Vote vote) {
         voteRepository.save(vote);
 
         HttpHeaders httpHeaders = new HttpHeaders();
@@ -34,7 +34,7 @@ public class VoteController {
     }
 
     @RequestMapping(value = "/polls/{id}/votes", method = RequestMethod.GET)
-    public Iterable<Vote> getAllVotes (@PathVariable Long id){
+    public Iterable<Vote> getAllVotes(@PathVariable Long id) {
         return voteRepository.findByPoll(id);
     }
 }
