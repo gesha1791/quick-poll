@@ -10,6 +10,7 @@ import ua.foxminded.quickpoll.domain.Poll;
 import ua.foxminded.quickpoll.repository.PollRepository;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.Optional;
 
@@ -25,7 +26,7 @@ public class PollController {
     }
 
     @RequestMapping(value = "/polls", method = RequestMethod.POST)
-    public ResponseEntity<?> createPoll(@RequestBody Poll poll) {
+    public ResponseEntity<?> createPoll(@Valid @RequestBody Poll poll) {
         poll = pollRepository.save(poll);
 
         HttpHeaders httpHeaders = new HttpHeaders();
