@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import ua.foxminded.quickpoll.Exception.ResourceNotFoundException;
 import ua.foxminded.quickpoll.domain.Poll;
 import ua.foxminded.quickpoll.repository.PollRepository;
 
@@ -41,22 +42,28 @@ public class PollController {
 
     @RequestMapping(value = "/polls/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> getPollById(@PathVariable Long id) {
-        // method findOne() is deprecated
+        verifyPoll(id);
         Optional<Poll> poll = pollRepository.findById(id);
-
         return new ResponseEntity<>(poll, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/polls/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?> updatePoll(@RequestBody Poll poll, @PathVariable Long id) {
+        verifyPoll(id);
         pollRepository.save(poll);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value = "/polls/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deletePollId(@PathVariable Long id) {
+        verifyPoll(id);
         pollRepository.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    private void verifyPoll(Long id) throws ResourceNotFoundException {
+        if(!pollRepository.findById(id).isPresent()){
+            throw new ResourceNotFoundException("Poll with id " + id + " not found");
+        }
+    }
 }
