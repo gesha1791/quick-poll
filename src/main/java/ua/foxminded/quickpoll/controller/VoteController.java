@@ -1,11 +1,16 @@
 package ua.foxminded.quickpoll.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import ua.foxminded.quickpoll.domain.Vote;
+import ua.foxminded.quickpoll.dto.VoteResult;
 import ua.foxminded.quickpoll.repository.VoteRepository;
 
 import javax.inject.Inject;
@@ -13,11 +18,15 @@ import javax.persistence.Id;
 import java.net.URI;
 
 @RestController
+@Api(value = "Votes", description = "Votes API", tags = {"Votes"})
 public class VoteController {
     @Inject
     VoteRepository voteRepository;
 
     @RequestMapping(value = "/polls/{id}/votes/", method = RequestMethod.POST)
+    @ApiOperation(value = "Casts a new vote for a given poll", notes = "The newly created vote Id will be sent in the location response header",
+            response = Void.class)
+    @ApiResponses(value = {@ApiResponse(code = 201, message = "Vote Created Successfully", response = Void.class)})
     public ResponseEntity<?> createVote(@PathVariable Long id, @RequestBody Vote vote) {
         voteRepository.save(vote);
 
@@ -34,6 +43,7 @@ public class VoteController {
     }
 
     @RequestMapping(value = "/polls/{id}/votes", method = RequestMethod.GET)
+    @ApiOperation(value = "Retrieves all the votes", response = Vote.class, responseContainer = "List")
     public Iterable<Vote> getAllVotes(@PathVariable Long id) {
         return voteRepository.findByPoll(id);
     }
