@@ -52,6 +52,8 @@ The application functionality is based on REST principles and realizes REST API 
 |PUT|/polls/{pollId}/votes/{voteId}|N/A|N/A|Status:400|Forbidden is a casted vote can′t be updated according to our requirements|
 |DELETE|/polls/{pollId}/votes/{voteId}|N/A|N/A|Status:400|Forbidden is a casted vote can′t be updated according to our requirements|
 
+
+
 ### **Allowed operations on ComputeResult resource**
 |HTTP Method|Resource Endpoint|Input|Success Response|Error Response|Description|
 |---|---|---|---|---|---|
