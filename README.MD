@@ -15,7 +15,7 @@ The application functionality is based on REST principles and realizes REST API 
   - Lombok
 
 ### **Base URI**
-  http://localhost:8080
+  http://localhost:8090
 
 ### **Available resources**
 |Resource|Description|
