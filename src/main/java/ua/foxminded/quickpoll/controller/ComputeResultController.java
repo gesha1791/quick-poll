@@ -17,12 +17,13 @@ import javax.inject.Inject;
 import java.util.HashMap;
 
 @RestController
+@RequestMapping(value = "/computeresult")
 @Api(value = "Computeresult", description = "Compute Results API", tags = {"Computeresult"})
 public class ComputeResultController {
     @Inject
     VoteRepository voteRepository;
 
-    @RequestMapping(value = "/computeresult", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "Computes the results of a given Poll", response = VoteResult.class)
     public ResponseEntity<?> computeResult(@RequestParam Long pollId) {
         Iterable<Vote> allVotesByPoll = voteRepository.findByPoll(pollId);

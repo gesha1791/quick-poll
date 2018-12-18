@@ -20,19 +20,20 @@ import java.net.URI;
 import java.util.Optional;
 
 @RestController
+@RequestMapping(value = "/polls")
 @Api(value = "Polls", description = "Poll API", tags = {"Polls"})
 public class PollController {
     @Inject
     PollRepository pollRepository;
 
-    @RequestMapping(value = "/polls", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "Retrieves all the polls", response = Poll.class, responseContainer = "List")
     public ResponseEntity<Iterable<Poll>> getAllPolls() {
         Iterable<Poll> allPolls = pollRepository.findAll();
         return new ResponseEntity<>(allPolls, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/polls", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     @ApiOperation(value = "Creates a new Poll", notes = "The newly created poll Id will be sent in the " +
                                                                 "localtion response header", response = Void.class)
     @ApiResponses(value =
@@ -53,7 +54,7 @@ public class PollController {
         return new ResponseEntity<>(null, httpHeaders, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/polls/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ApiOperation(value = "Retrieves a poll associated with the pollId", response = Poll.class)
     @ApiResponses(value = {@ApiResponse(code = 200, message = "", response = Poll.class),
                                   @ApiResponse(code = 404, message = "Unable to find poll", response = ErrorDetail.class)})
@@ -63,7 +64,7 @@ public class PollController {
         return new ResponseEntity<>(poll, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/polls/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ApiOperation(value = "Updates given Poll", response = Void.class)
     @ApiResponses(value = {@ApiResponse(code = 200, message = "", response = Void.class),
                                   @ApiResponse(code = 404, message = "Unable to find Poll", response = ErrorDetail.class)})
@@ -73,7 +74,7 @@ public class PollController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/polls/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ApiOperation(value = "Deletes given Poll", response = Void.class)
     @ApiResponses(value = {@ApiResponse(code = 200, message = "", response = Void.class),
                                   @ApiResponse(code = 404, message = "Unable to find Poll", response = ErrorDetail.class)})
