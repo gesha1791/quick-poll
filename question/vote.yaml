@@ -1,0 +1,62 @@
+openapi: 3.0.0
+info:
+ title: My Rest Api
+ description: Some custom description of API
+ version: 1.0.0
+servers:
+ - url: http://localhost:8090
+paths:
+ /polls/{pollId}/votes:
+   get:
+     summary: Retrieves all available votes for a given poll.
+     parameters:
+       - name: pollId
+         in: path
+         required: true
+         description: Numeric ID of the poll to get
+         schema:
+           type : integer
+           format: int64
+           minimum: 1
+     responses:
+       '200':    # status code
+         description: A JSON array all available votes for a given poll.
+         content:
+           application/json:
+             schema:
+               type: array
+               items:
+                 type: string
+       '500':
+         description: Internal Server Error
+         content:
+           application/json:
+             schema:
+               $ref: 'ua.foxminded.quickpoll.dto.error'
+   post:
+     summary: Creates a new vote
+     parameters:
+       - name: pollId
+         in: path
+         required: true
+         description: Numeric ID of the poll to get
+         schema:
+           type : integer
+           format: int64
+           minimum: 1
+     requestBody:
+       required: true
+       content:
+         application/json:
+           schema:
+             type: object
+     responses:
+       '201':
+         description: Created
+
+       '500':
+         description: Internal Server Error
+         content:
+           application/json:
+             schema:
+               $ref: 'ua.foxminded.quickpoll.dto.error'
