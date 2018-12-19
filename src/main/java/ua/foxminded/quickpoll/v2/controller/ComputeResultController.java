@@ -1,4 +1,4 @@
-package ua.foxminded.quickpoll.controller;
+package ua.foxminded.quickpoll.v2.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -16,8 +16,8 @@ import ua.foxminded.quickpoll.repository.VoteRepository;
 import javax.inject.Inject;
 import java.util.HashMap;
 
-@RestController
-@RequestMapping(value = "/computeresult")
+@RestController("computeresultControllerV2")
+@RequestMapping(value = "/v2/computeresult")
 @Api(value = "Computeresult", description = "Compute Results API", tags = {"Computeresult"})
 public class ComputeResultController {
     @Inject

@@ -1,4 +1,4 @@
-package ua.foxminded.quickpoll.controller;
+package ua.foxminded.quickpoll.v2.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -19,8 +19,8 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.util.Optional;
 
-@RestController
-@RequestMapping(value = "/polls")
+@RestController("pollControllerV2")
+@RequestMapping(value = "/v2/polls")
 @Api(value = "Polls", description = "Poll API", tags = {"Polls"})
 public class PollController {
     @Inject

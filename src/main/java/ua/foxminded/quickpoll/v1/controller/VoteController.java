@@ -1,4 +1,4 @@
-package ua.foxminded.quickpoll.controller;
+package ua.foxminded.quickpoll.v1.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -10,15 +10,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import ua.foxminded.quickpoll.domain.Vote;
-import ua.foxminded.quickpoll.dto.VoteResult;
 import ua.foxminded.quickpoll.repository.VoteRepository;
 
 import javax.inject.Inject;
-import javax.persistence.Id;
 import java.net.URI;
 
-@RestController
-@RequestMapping(value = "/polls/{id}")
+@RestController("voteControllerV1")
+@RequestMapping(value = "/v1/polls/{id}")
 @Api(value = "Votes", description = "Votes API", tags = {"Votes"})
 public class VoteController {
     @Inject
