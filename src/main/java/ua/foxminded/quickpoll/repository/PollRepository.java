@@ -1,7 +1,7 @@
 package ua.foxminded.quickpoll.repository;
 
-        import org.springframework.data.repository.CrudRepository;
+        import org.springframework.data.repository.PagingAndSortingRepository;
         import ua.foxminded.quickpoll.domain.Poll;
 
-public interface PollRepository extends CrudRepository<Poll, Long> {
+public interface PollRepository extends PagingAndSortingRepository<Poll, Long> {
 }

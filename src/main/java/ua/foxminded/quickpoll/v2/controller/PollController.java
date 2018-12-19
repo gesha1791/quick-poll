@@ -4,6 +4,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +31,8 @@ public class PollController {
 
     @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "Retrieves all the polls", response = Poll.class, responseContainer = "List")
-    public ResponseEntity<Iterable<Poll>> getAllPolls() {
-        Iterable<Poll> allPolls = pollRepository.findAll();
+    public ResponseEntity<Page<Poll>> getAllPolls(@PageableDefault(size = 10) Pageable pageable) {
+        Page<Poll> allPolls = pollRepository.findAll(pageable);
         return new ResponseEntity<>(allPolls, HttpStatus.OK);
     }
 
