@@ -18,15 +18,15 @@ public class Poll {
 
     @Id
     @GeneratedValue
-    @Column(name = "POLL_ID")
+    @Column(name = "poll_id")
     private Long id;
 
-    @Column(name = "QUESTION")
+    @Column(name = "question")
     @NotEmpty
     private String question;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "POLL_ID")
+    @JoinColumn(name = "poll_id")
     @OrderBy
     @Size(min = 2, max = 6)
     private Set<Option> options;

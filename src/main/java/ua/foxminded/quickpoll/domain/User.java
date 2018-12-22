@@ -12,34 +12,34 @@ import org.hibernate.annotations.Type;
 
 
 @Entity
-@Table(name = "USERS")
+@Table(name = "users")
 @Getter
 @Setter
 @ToString
 public class User {
     @Id
     @GeneratedValue
-    @Column(name = "USER_ID")
+    @Column(name = "user_id")
     private Long id;
 
-    @Column(name = "USERNAME")
+    @Column(name = "username")
     @NotEmpty
     private String username;
 
-    @Column(name = "PASSWORD")
+    @Column(name = "password")
     @NotEmpty
     @JsonIgnore
     private String password;
 
-    @Column(name="FIRST_NAME")
+    @Column(name="first_name")
     @NotEmpty
     private String firstName;
 
-    @Column(name="LAST_NAME")
+    @Column(name="lasn_name")
     @NotEmpty
     private String lastName;
 
-    @Column(name="ADMIN", columnDefinition="char(3)")
+    @Column(name="admin", columnDefinition="char(3)")
     @Type(type="yes_no")
     @NotEmpty
     private boolean admin;

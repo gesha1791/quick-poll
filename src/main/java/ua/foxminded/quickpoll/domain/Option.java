@@ -14,9 +14,9 @@ public class Option {
 
     @Id
     @GeneratedValue
-    @Column(name = "OPTION_ID")
+    @Column(name = "option_id")
     private Long id;
 
-    @Column(name = "OPTION_VALUE")
+    @Column(name = "option_value")
     private String value;
 }

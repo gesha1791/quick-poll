@@ -14,10 +14,10 @@ public class Vote {
 
     @Id
     @GeneratedValue
-    @Column(name = "VOTE_ID")
+    @Column(name = "vote_id")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "OPTION_ID")
+    @JoinColumn(name = "option_id")
     private Option option;
 }
