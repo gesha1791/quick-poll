@@ -10,6 +10,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import ua.foxminded.quickpoll.Exception.ResourceNotFoundException;
@@ -23,7 +24,7 @@ import java.net.URI;
 import java.util.Optional;
 
 @RestController("pollControllerV3")
-@RequestMapping(value = "/v3/polls")
+@RequestMapping({"/v3/polls", "/oauth2/v3/"})
 @Api(value = "Polls", description = "Poll API", tags = {"Polls"})
 public class PollController {
     @Inject
@@ -81,6 +82,7 @@ public class PollController {
     @ApiOperation(value = "Deletes given Poll", response = Void.class)
     @ApiResponses(value = {@ApiResponse(code = 200, message = "", response = Void.class),
                                   @ApiResponse(code = 404, message = "Unable to find Poll", response = ErrorDetail.class)})
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Void> deletePollId(@PathVariable Long id) {
         verifyPoll(id);
         pollRepository.deleteById(id);

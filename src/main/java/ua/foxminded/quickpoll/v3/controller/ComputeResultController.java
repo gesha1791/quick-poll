@@ -17,7 +17,7 @@ import javax.inject.Inject;
 import java.util.HashMap;
 
 @RestController("computeresultControllerV3")
-@RequestMapping(value = "/v3/computeresult")
+@RequestMapping({"/v3/computeresult", "/oauth2/v3/computeresult"})
 @Api(value = "Computeresult", description = "Compute Results API", tags = {"Computeresult"})
 public class ComputeResultController {
     @Inject

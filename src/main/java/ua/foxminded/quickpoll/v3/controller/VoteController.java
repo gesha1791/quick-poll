@@ -16,7 +16,7 @@ import javax.inject.Inject;
 import java.net.URI;
 
 @RestController("voteControllerV3")
-@RequestMapping(value = "/v3/polls/{id}")
+@RequestMapping({"/v3/polls/{id}", "/oauth2/v3/{id}"})
 @Api(value = "Votes", description = "Votes API", tags = {"Votes"})
 public class VoteController {
     @Inject
