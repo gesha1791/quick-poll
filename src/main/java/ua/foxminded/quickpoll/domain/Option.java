@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Setter
 @ToString
 public class Option {
-
     @Id
     @GeneratedValue
     @Column(name = "option_id")

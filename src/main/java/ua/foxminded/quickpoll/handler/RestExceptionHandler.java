@@ -10,9 +10,9 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import ua.foxminded.quickpoll.Exception.ResourceNotFoundException;
 import ua.foxminded.quickpoll.dto.error.ErrorDetail;
 import ua.foxminded.quickpoll.dto.error.ValidationError;
+import ua.foxminded.quickpoll.exception.ResourceNotFoundException;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;

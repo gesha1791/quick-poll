@@ -35,7 +35,7 @@ public class User {
     @NotEmpty
     private String firstName;
 
-    @Column(name="lasn_name")
+    @Column(name="last_name")
     @NotEmpty
     private String lastName;
 

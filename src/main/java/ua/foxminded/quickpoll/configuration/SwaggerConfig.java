@@ -57,4 +57,22 @@ public class SwaggerConfig{
                                         .build());
     }
 
+    @Bean
+    public Docket swaggerQuickPollApiV3() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                       .groupName("quickpoll-api-3.0")
+                       .useDefaultResponseMessages(false)
+                       .select()
+                       .apis(RequestHandlerSelectors.basePackage("ua.foxminded.quickpoll.v3.controller"))
+                       .paths(regex("/v3/.*"))
+                       .build()
+                       .apiInfo(new ApiInfoBuilder()
+                                        .version("3.0")
+                                        .title("My REST API")
+                                        .description("Some custom description of API")
+                                        .contact(new Contact("John Doe", "www.example.com", "myeaddress@company.com"))
+                                        .license("API TOS")
+                                        .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
+                                        .build());
+    }
 }

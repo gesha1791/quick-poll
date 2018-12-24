@@ -13,9 +13,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import ua.foxminded.quickpoll.Exception.ResourceNotFoundException;
 import ua.foxminded.quickpoll.domain.Poll;
 import ua.foxminded.quickpoll.dto.error.ErrorDetail;
+import ua.foxminded.quickpoll.exception.ResourceNotFoundException;
 import ua.foxminded.quickpoll.repository.PollRepository;
 
 import javax.inject.Inject;
@@ -24,7 +24,7 @@ import java.net.URI;
 import java.util.Optional;
 
 @RestController("pollControllerV3")
-@RequestMapping({"/v3/polls", "/oauth2/v3/"})
+@RequestMapping({"/v3/polls", "/oauth2/v3/polls"})
 @Api(value = "Polls", description = "Poll API", tags = {"Polls"})
 public class PollController {
     @Inject

@@ -1,4 +1,4 @@
-package ua.foxminded.quickpoll.Exception;
+package ua.foxminded.quickpoll.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

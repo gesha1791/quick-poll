@@ -9,9 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import ua.foxminded.quickpoll.Exception.ResourceNotFoundException;
 import ua.foxminded.quickpoll.domain.Poll;
 import ua.foxminded.quickpoll.dto.error.ErrorDetail;
+import ua.foxminded.quickpoll.exception.ResourceNotFoundException;
 import ua.foxminded.quickpoll.repository.PollRepository;
 
 import javax.inject.Inject;

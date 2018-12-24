@@ -11,10 +11,15 @@ import javax.inject.Inject;
 
 @Configuration
 @EnableAuthorizationServer
-public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter{
+public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Inject
     private AuthenticationManager authenticationManager;
+
+    @Override
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+        endpoints.authenticationManager(this.authenticationManager);
+    }
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
@@ -25,10 +30,5 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
                 .authorizedGrantTypes("password")
                 .scopes("read", "write")
                 .resourceIds("QuickPoll_Resources");
-    }
-
-    @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.authenticationManager(this.authenticationManager);
     }
 }
