@@ -1,4 +1,4 @@
-insert into poll (poll_id, question) values (1000, 'What is your favorite color?');
+insert into poll (poll_id, question) values (1001, 'What is your favorite color?');
 insert into option (option_id, option_value, poll_id) values (1001, 'Red', 1001);
 insert into option (option_id, option_value, poll_id) values (1002, 'Black', 1001);
 insert into option (option_id, option_value, poll_id) values (1003, 'Blue', 1001);
