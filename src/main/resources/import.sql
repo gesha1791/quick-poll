@@ -113,15 +113,9 @@ INSERT INTO option (option_id, option_value, poll_id) VALUES (1073, '5', 1020);
 INSERT INTO option (option_id, option_value, poll_id) VALUES (1074, '4', 1020);
 
 
-INSERT INTO users (user_id, username, password, first_name, last_name, admin)
-VALUES (1001, 'mickey', '$2a$10$kSqU.ek5pDRMMK21tHJlceS1xOc9Kna4F0DD2ZwQH/LAzH0ML0p6.', 'Mickey', 'Mouse', 'no');
-INSERT INTO users (user_id, username, password, first_name, last_name, admin)
-VALUES (1002, 'minnie', '$2a$10$MnHcLn.XdLx.iMntXsmdgeO1B4wAW1E5GOy/VrLUmr4aAzabXnGFq', 'Minnie', 'Mouse', 'no');
-INSERT INTO users (user_id, username, password, first_name, last_name, admin)
-VALUES (1003, 'donald', '$2a$10$0UCBI04PCXiK0pF/9kI7.uAXiHNQeeHdkv9NhA1/xgmRpfd4qxRMG', 'Donald', 'Duck', 'no');
-INSERT INTO users (user_id, username, password, first_name, last_name, admin)
-VALUES (1004, 'daisy', '$2a$10$aNoR88g5b5TzSKb7mQ1nQOkyEwfHVQOxHY0HX7irI8qWINvLDWRyS', 'Daisy', 'Duck', 'no');
-INSERT INTO users (user_id, username, password, first_name, last_name, admin)
-VALUES (1005, 'clarabelle', '$2a$10$cuTJd2ayEwXfsPdoF5/hde6gzsPx/gEiv8LZsjPN9VPoN5XVR8cKW', 'Clarabelle', 'Cow', 'no');
-INSERT INTO users (user_id, username, password, first_name, last_name, admin)
-VALUES (1006, 'admin', '$2a$10$JQOfG5Tqnf97SbGcKsalz.XpDQbXi1APOf2SHPVW27bWNioi9nI8y', 'Super', 'Admin', 'yes');
+INSERT INTO users (user_id, username, password, first_name, last_name, admin) VALUES (1001, 'mickey', '$2a$10$kSqU.ek5pDRMMK21tHJlceS1xOc9Kna4F0DD2ZwQH/LAzH0ML0p6.', 'Mickey', 'Mouse', 'no');
+INSERT INTO users (user_id, username, password, first_name, last_name, admin) VALUES (1002, 'minnie', '$2a$10$MnHcLn.XdLx.iMntXsmdgeO1B4wAW1E5GOy/VrLUmr4aAzabXnGFq', 'Minnie', 'Mouse', 'no');
+INSERT INTO users (user_id, username, password, first_name, last_name, admin) VALUES (1003, 'donald', '$2a$10$0UCBI04PCXiK0pF/9kI7.uAXiHNQeeHdkv9NhA1/xgmRpfd4qxRMG', 'Donald', 'Duck', 'no');
+INSERT INTO users (user_id, username, password, first_name, last_name, admin) VALUES (1004, 'daisy', '$2a$10$aNoR88g5b5TzSKb7mQ1nQOkyEwfHVQOxHY0HX7irI8qWINvLDWRyS', 'Daisy', 'Duck', 'no');
+INSERT INTO users (user_id, username, password, first_name, last_name, admin) VALUES (1005, 'clarabelle', '$2a$10$cuTJd2ayEwXfsPdoF5/hde6gzsPx/gEiv8LZsjPN9VPoN5XVR8cKW', 'Clarabelle', 'Cow', 'no');
+INSERT INTO users (user_id, username, password, first_name, last_name, admin) VALUES (1006, 'admin', '$2a$10$JQOfG5Tqnf97SbGcKsalz.XpDQbXi1APOf2SHPVW27bWNioi9nI8y', 'Super', 'Admin', 'yes');
