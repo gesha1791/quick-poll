@@ -12,14 +12,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.util.UriComponentsBuilder;
 import ua.foxminded.quickpoll.domain.Poll;
 import ua.foxminded.quickpoll.dto.error.ErrorDetail;
 import ua.foxminded.quickpoll.exception.ResourceNotFoundException;
 import ua.foxminded.quickpoll.repository.PollRepository;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 
 @RestController("pollControllerV2")
@@ -28,6 +31,7 @@ import java.util.Optional;
 public class PollController {
     @Inject
     PollRepository pollRepository;
+
 
     @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "Retrieves all the polls", response = Poll.class, responseContainer = "List")

@@ -18,9 +18,9 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http
-                .requestMatchers().antMatchers("/oauth2/v3/polls/**")
+                .requestMatchers().antMatchers("/oauth2/v4/polls/**")
                 .and()
-                .authorizeRequests().antMatchers("/oauth2/v3/polls/**").authenticated();
+                .authorizeRequests().antMatchers("/oauth2/v4/polls/**").authenticated();
     }
 
 }
