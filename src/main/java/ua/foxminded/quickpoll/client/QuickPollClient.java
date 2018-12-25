@@ -22,7 +22,8 @@ public class QuickPollClient {
     }
 
     public List<Poll> getAllPolls() {
-        ParameterizedTypeReference<List<Poll>> responseType = new ParameterizedTypeReference<List<Poll>>() {};
+        ParameterizedTypeReference<List<Poll>> responseType = new ParameterizedTypeReference<List<Poll>>() {
+        };
         ResponseEntity<List<Poll>> responseEntity = restTemplate.exchange(QUICK_POLL_URI_V1, HttpMethod.GET, null, responseType);
         List<Poll> allPolls = responseEntity.getBody();
 
@@ -34,15 +35,15 @@ public class QuickPollClient {
     }
 
     public URI createPoll(Poll poll) {
-        return restTemplate.postForLocation( QUICK_POLL_URI_V1, poll);
+        return restTemplate.postForLocation(QUICK_POLL_URI_V1, poll);
     }
 
     public void updatePoll(Poll poll) {
-        restTemplate.put(QUICK_POLL_URI_V1 + "/{pollId}",  poll, poll.getId());
+        restTemplate.put(QUICK_POLL_URI_V1 + "/{pollId}", poll, poll.getId());
     }
 
     public void deletePoll(Long pollId) {
-        restTemplate.delete(QUICK_POLL_URI_V1 + "/{pollId}",  pollId);
+        restTemplate.delete(QUICK_POLL_URI_V1 + "/{pollId}", pollId);
     }
 
     public static void main(String[] args) {

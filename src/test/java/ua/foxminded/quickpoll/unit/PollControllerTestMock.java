@@ -30,7 +30,7 @@ public class PollControllerTestMock {
     }
 
     @Test
-    public void testGetAllPolls(){
+    public void testGetAllPolls() {
         PollController pollController = new PollController();
 
         ReflectionTestUtils.setField(pollController, "pollRepository", pollRepository);

@@ -8,10 +8,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 import ua.foxminded.quickpoll.domain.Option;
 import ua.foxminded.quickpoll.domain.Poll;
 
-import java.awt.*;
 import java.net.URI;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class QuickPollClientV2 {
@@ -19,7 +17,8 @@ public class QuickPollClientV2 {
     private RestTemplate restTemplate = new RestTemplate();
 
     public CustomPageImpl<Poll> getAllPolls(int page, int size) {
-        ParameterizedTypeReference<CustomPageImpl<Poll>> responseType = new ParameterizedTypeReference<CustomPageImpl<Poll>>() {};
+        ParameterizedTypeReference<CustomPageImpl<Poll>> responseType = new ParameterizedTypeReference<CustomPageImpl<Poll>>() {
+        };
         UriComponentsBuilder builder = UriComponentsBuilder
                                                .fromHttpUrl(QUICK_POLL_URI_2)
                                                .queryParam("page", page)
@@ -29,20 +28,21 @@ public class QuickPollClientV2 {
         CustomPageImpl<Poll> allPolls = responseEntity.getBody();
         return allPolls;
     }
+
     public Poll getPollById(Long pollId) {
         return restTemplate.getForObject(QUICK_POLL_URI_2 + "/{pollId}", Poll.class, pollId);
     }
 
     public URI createPoll(Poll poll) {
-        return restTemplate.postForLocation( QUICK_POLL_URI_2, poll);
+        return restTemplate.postForLocation(QUICK_POLL_URI_2, poll);
     }
 
     public void updatePoll(Poll poll) {
-        restTemplate.put(QUICK_POLL_URI_2 + "/{pollId}",  poll, poll.getId());
+        restTemplate.put(QUICK_POLL_URI_2 + "/{pollId}", poll, poll.getId());
     }
 
     public void deletePoll(Long pollId) {
-        restTemplate.delete(QUICK_POLL_URI_2 + "/{pollId}",  pollId);
+        restTemplate.delete(QUICK_POLL_URI_2 + "/{pollId}", pollId);
     }
 
     public static void main(String[] args) {
@@ -87,7 +87,5 @@ public class QuickPollClientV2 {
         // Test Delete
         client.deletePoll(1009L);
     }
-
-
 }
 

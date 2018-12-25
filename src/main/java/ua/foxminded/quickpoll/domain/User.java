@@ -31,16 +31,16 @@ public class User {
     @JsonIgnore
     private String password;
 
-    @Column(name="first_name")
+    @Column(name = "first_name")
     @NotEmpty
     private String firstName;
 
-    @Column(name="last_name")
+    @Column(name = "last_name")
     @NotEmpty
     private String lastName;
 
-    @Column(name="admin", columnDefinition="char(3)")
-    @Type(type="yes_no")
+    @Column(name = "admin", columnDefinition = "char(3)")
+    @Type(type = "yes_no")
     @NotEmpty
     private boolean admin;
 }

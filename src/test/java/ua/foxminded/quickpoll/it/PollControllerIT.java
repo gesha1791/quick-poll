@@ -29,7 +29,7 @@ public class PollControllerIT {
     private MockMvc mockMvc;
 
     @Before
-    public void setup(){
+    public void setup() {
         mockMvc = webAppContextSetup(webApplicationContext).build();
     }
 
@@ -39,5 +39,4 @@ public class PollControllerIT {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(20)));
     }
-
 }

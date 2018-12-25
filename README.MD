@@ -11,8 +11,15 @@ The application functionality is based on REST principles and realizes REST API 
 - Results of a poll can be viewed by anyone
 
 ### **Main used technologies are:**
-  - Spring-Boot
+  - spring-boot-starter-data-jpa
+  - spring-boot-starter-web
+  - spring-boot-starter-security
+  - spring-security-oauth2
+  - spring-boot-starter-test
   - Lombok
+  - h2
+  - swagger
+  - javax.inject
 
 ### **Base URI**
   http://localhost:8090
@@ -61,3 +68,38 @@ The application functionality is based on REST principles and realizes REST API 
 
 ### **Request and response data format**
 - application/JSON
+
+## **Security**
+
+#### Test user information
+
+|Username|Password|Is Admin|
+|---|---|---|
+|mickey|cheese|no|
+|minnie|red01|no|
+|donald|quack|no|
+|daisy|quack2|no|
+|clarabelle|moo|no|
+|admin|admin|yes|
+
+#### CURL commands
+
+curl -u mickey:cheese http://localhost:8090/v3/polls get all polls, base authentification
+
+curl -i -u admin:admin -X DELETE http://localhost:8090/v3/polls/13 delete poll
+curl -i -u mickey:cheese -X DELETE http://localhost:8090/v3/polls/13 forbidden 403
+
+OAuth 2
+
+curl -u quickpolliOSClient:top_secret -X POST http://localhost:8090/oauth/token -H “Accept:application/json” -d “username=mickey&password=cheese&grant_type=password”
+generate a token for the user mickey
+
+access token:
+{"access_token":"77ed953e-b3b6-4ea1-820e-2e9acc702293","token_type":"bearer","expires_in":42874,"scope":"read write"}
+
+curl http://localhost:8090/oauth2/v3/polls -H "Authorization: Bearer 77ed953e-b3b6-4ea1-820e-2e9acc702293" GET all polls OAuth 2
+
+curl -u quickpolliOSClient:top_secret -X POST http://localhost:8090/oauth/token -H "Accept:application/json" -d "username=admin&password=admin&grant_type=password"
+generate a token for the user admin
+
+curl -X DELETE http://localhost:8080/oauth2/v3/polls/11 -H "Authorization: Bearer 946e1f71-21c3-4923-bf96-3b0f8cea708a" DELETE poll

@@ -24,7 +24,8 @@ public class QuickPollClientV3OAuth {
 
         // Set scopes
         List<String> scopes = new ArrayList<>();
-        scopes.add("read"); scopes.add("write");
+        scopes.add("read");
+        scopes.add("write");
         resourceDetails.setScope(scopes);
 
         // Resource Owner details
